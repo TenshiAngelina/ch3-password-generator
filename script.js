@@ -5,6 +5,7 @@ var upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P'
 var numbers = [0,1,2,3,4,5,6,7,8,9];
 var characters = [' ','!','"','#','$','%','&','(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[','^','_','`','{','|','}','~'];
 var charLength = 8;
+var generatedPass = [];
 // var password = generatePassword;
 
 // Add event listener to generate button
@@ -12,9 +13,9 @@ generateBtn.addEventListener('click', writePassword);
 
 // Write password to the #password input
 function writePassword() {
-  var prompts = userPrompts;
+  var prompts = userPrompts();
   if(prompts) {
-    var password = generatePassword;
+    var password = generatePassword();
     var passwordText = document.querySelector('#password');
     passwordText.value = password;
   }
@@ -30,7 +31,7 @@ function generatePassword(){
 }
 
 function userPrompts(){
-  var generatedPass = [];
+
   var charLength = parseInt(prompt('How many character do you want your password to be (choose a number between 8 and 128)?'));
 
   if(isNaN(charLength) || charLength < 8 || charLength > 128){
